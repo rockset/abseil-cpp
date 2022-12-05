@@ -436,7 +436,10 @@ ABSL_NAMESPACE_END
 // -------------------------------------------------------------------------
 // Address sanitizer annotations
 
-#ifdef ABSL_HAVE_ADDRESS_SANITIZER
+// ABSL_ADDRESS_SANITIZER_REDZONE requires that abseil be compiled with
+// the same address sanitizer setting as all of its usages, which is not
+// compatible with installing abseil in /usr.  Disable
+#if 0 // ifdef ABSL_HAVE_ADDRESS_SANITIZER
 // Describe the current state of a contiguous container such as e.g.
 // std::vector or std::string. For more details see
 // sanitizer/common_interface_defs.h, which is provided by the compiler.
